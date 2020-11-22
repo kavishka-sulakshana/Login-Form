@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/2fcb2445b1.js" crossorigin="anonymous"></script>
+    <style>
+        *{margin: 0;padding: 0;}
+        .container1{
+            line-height: 5vh;
+            width: 650px;
+            margin: auto;
+            
+
+        }  
+        .container2{
+            width: 646px;
+            margin: auto;
+            border:2px solid rgb(0, 47, 255);
+            
+        } 
+        .logHead{
+            background:linear-gradient(rgb(0, 117, 250),rgb(0, 47, 255));
+            color: white;
+            padding: 15px 0;
+            margin-top:10px ;
+            text-align: center;
+            border-radius: 5px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            justify-content: space-around;
+        }
+        .listDiv ul{
+            display: flex;
+            list-style-type: none;
+            padding-bottom: 10px;
+            
+        }
+        .listDiv ul li{
+            flex: 1;
+            text-align: center;
+            display: inline-block;
+            flex-direction: column;
+            margin-bottom:0 ;
+            margin-top:10px;
+            margin-left: 80px;
+            margin-right: 80px;
+            background:rgb(5, 100, 207);
+            border-radius: 15px;
+            color: white; 
+            cursor: pointer;
+            
+        }
+        .infoDiv{
+            padding: 15px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 550px;
+
+        }
+        .infoDiv label{
+            
+            padding: 7px;
+            border-radius: 3px;
+            background:rgb(1, 67, 94);
+            margin-right:15px ;
+            cursor:default;
+            color: white;
+        }
+        .txt{
+            padding: 10px;
+            font-size: large;
+            border:none;
+            border-bottom: 1px solid blue;
+            outline: none;
+        }
+        .btn{font-family:  'Open Sans', sans-serif;border:0.5px solid rgba(0, 0, 0, 0.281);outline: none;border-radius: 5px;padding: 8px 8px;margin: 5px;cursor: pointer;transition: border-radious 0.5s;}
+        .btn-green{color: blanchedalmond;background:linear-gradient(rgb(0, 173, 0),green) ;border:0.5px solid rgba(0, 128, 0, 0.548);}
+.btn-red{color: blanchedalmond;background: linear-gradient(rgb(235, 0, 0),rgb(173, 4, 4));border:0.5px solid rgba(255, 0, 0, 0.514);}
+.btn-yellow{color: rgb(255, 255, 255);background: linear-gradient(rgb(227, 243, 0),rgb(147, 173, 0));border:0.5px solid rgba(245, 202, 12, 0.459);}
+.btn:hover{box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.274);border:0.1px solid}      
+   .valid{
+       color: rgb(0, 219, 0);
+   }
+   .invalid{
+       color: red;
+   }
+   hr{
+       margin-left: auto;
+       margin-right: auto;
+       size: 1px;
+      border: 0.5px solid rgba(17, 0, 255, 0.349);
+   }
+   .buttonDiv{
+       margin: auto;
+       width: 300px;
+       display: flex;
+       align-items: center;
+       padding-top: 20px;
+   }
+   .buttonDiv input{
+       flex:1;
+   }
+   .selected{
+       border:none;
+       border-bottom: 1px;
+       border :solid rgba(1, 68, 94, 0.637);
+   }
+   select{
+       font-size: large;
+   }
+    </style>
+</head>
+<body onload="loading();">
+<div class="container1">
+    <div class="logHead">
+        <h1>VLE Login</h1>
+    </div>
+    <div class="container2">
+    <div class="listDiv">
+        <ul>
+            <li class="selected" onclick="oldSL();" id="new"><a>Eduzone Student Login</a></li>
+            <li onclick="newSL();" id="old"><a>New Student Login</a> </li>
+        </ul>  
+        
+    </div>
+    <hr  width=95%>
+    <!--this is for eduzone student-->
+    <fieldset style="border: none;" id="one">
+        <form action="">
+    <div class="infoDiv">
+        
+        <label for=" userName">User name</label><input class="txt" type="text" placeholder="Username or Email" id="txtUser"><i class="fa"  id="userBox"></i><br><br>
+        <label for=" password">Password </label><input class="txt" type="password" placeholder=" password" id="txtPass"><i class="fa" id="passBox"></i><br><br>
+        
+        <div class="buttonDiv">
+            <input type="submit" class="btn btn-green" value='Login' id="sub" hidden="true">
+            <input type="reset" class="btn btn-red" value="cancel"> 
+        </div>
+    </div>
+</form>
+    </fieldset>
+
+    <!--this is for new student-->
+
+    <fieldset style="border: none;" hidden id="two">
+    <form action="">
+    <div class="infoDiv">
+        
+        <label for=" userName">User name</label><input class="txt" type="text" placeholder="Username or Email" id="txtUser2"><i class="fa"  id="userBox2"></i><br><br>
+        <label for=" password">Password </label><input class="txt" type="password" placeholder=" password" id="txtPass2"><i class="fa" id="passBox2"></i><br><br>
+        <label for="conform password">Conform Password </label><input class="txt" type="password" placeholder="confirm password" id="conPass"><i class="fa" id="conBox"></i><br><br>
+        <label for=" telNo">Mobile No</label><input class="txt" type="text" placeholder="mobile no" id="txtMobile"><i class="fa"  id="mobileBox"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for=" year">A/L Year</label><select name="year" id="year"><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option></select>
+        <div class="buttonDiv">
+            <input type="submit" class="btn btn-green" value='Login' id="sub2" hidden="true">
+            <input type="reset" class="btn btn-red" value="cancel"> 
+        </div>
+    </div></form></fieldset>
+    </div>
+    </div>
+
+<script>
+    function loading(){
+        oldSL();
+    }
+    one = document.getElementById("one");
+    two = document.getElementById("two");
+    /*  this is for eduzone user login  
+    --------------------------------------------------------------
+    */
+function oldSL(){
+    
+    two.hidden = true ;
+    one.hidden=false;
+    document.getElementById("new").classList.add("selected");
+    document.getElementById("old").classList.remove("selected");
+
+    userName = document.getElementById("txtUser");
+    password = document.getElementById("txtPass");
+    
+    userName.addEventListener('keyup',chkUser);
+    password.addEventListener('keyup',chkPass);
+
+    data = new Object;
+    data.uName = null;
+    data.pwd = null;
+  
+    function chkUser(){
+        var userNameRX = new RegExp("^[A-Z,a-z,0-9,@,.]{5,}$");
+        var validityUser = userNameRX.test(userName.value);
+
+        if (validityUser==true){
+            document.getElementById("userBox").classList.add("valid");
+            document.getElementById("userBox").classList.add("fa-check-circle");
+            document.getElementById("userBox").classList.remove("invalid");
+            document.getElementById("userBox").classList.remove("fa-times-circle");
+            document.getElementById("sub").hidden=false;
+            data.pwd = password.value;
+            if(pwd == null){
+            document.getElementById("sub").hidden=true;
+            }
+        }   
+        else{
+            document.getElementById("userBox").classList.add("invalid");
+            document.getElementById("userBox").classList.add("fa-times-circle");
+            document.getElementById("userBox").classList.remove("valid");
+            document.getElementById("userBox").classList.remove("fa-check-circle");
+            document.getElementById("sub").hidden=true;
+            
+        }
+    }
+    function chkPass(){
+        var passwordRX = new RegExp("^[A-Z,a-z,0-9,~,!,@,#,$,%,^,&,*]{8,}$"); //cheking
+        var validityPass = passwordRX.test(password.value);
+
+        if (validityPass==true){
+            //alert('valid');
+            document.getElementById("passBox").classList.add("valid");
+            document.getElementById("passBox").classList.add("fa-check-circle");
+            document.getElementById("passBox").classList.remove("invalid");
+            document.getElementById("passBox").classList.remove("fa-times-circle");
+            document.getElementById("sub").hidden=false;  
+        }   
+        else{
+            //alert('invalid');
+            document.getElementById("passBox").classList.add("invalid");
+            document.getElementById("passBox").classList.add("fa-times-circle");
+            document.getElementById("passBox").classList.remove("valid");
+            document.getElementById("passBox").classList.remove("fa-check-circle");
+            document.getElementById("sub").hidden=true;
+        }
+    }
+}
+ 
+ /*  this is for new user login  
+    --------------------------------------------------------------
+    */
+function newSL(){
+    two.hidden = false ;
+    one.hidden=true;
+    document.getElementById("new").classList.remove("selected");
+    document.getElementById("old").classList.add("selected");
+
+    userName2 = document.getElementById("txtUser2");
+    password2 = document.getElementById("txtPass2");
+    conformPass = document.getElementById("conPass");
+    teleNo = document.getElementById("txtMobile");
+    aLYear = document.getElementById("year");
+
+    userName2.addEventListener('keyup',chkUser2);
+    password2.addEventListener('keyup',chkPass2);
+    conformPass.addEventListener('keyup',chkCon);
+    teleNo.addEventListener('keyup',chkNum);
+
+
+    data2 = new Object;
+    data2.uName = null;
+    data2.pwd = null;
+    data2.telNo = null;
+    data2.year = null;
+
+  
+    function chkUser2(){
+        var userName2RX = new RegExp("^[A-Z,a-z,0-9,@,.]{5,}$");
+        var validityUser2 = userName2RX.test(userName2.value);
+
+        if (validityUser2==true){
+            document.getElementById("userBox2").classList.add("valid");
+            document.getElementById("userBox2").classList.add("fa-check-circle");
+            document.getElementById("userBox2").classList.remove("invalid");
+            document.getElementById("userBox2").classList.remove("fa-times-circle");
+            document.getElementById("sub2").hidden=false;
+            data2.pwd = password2.value;
+            if(data2.pwd == null){
+            document.getElementById("sub2").hidden=true;
+            }
+        }   
+        else{
+            document.getElementById("userBox2").classList.add("invalid");
+            document.getElementById("userBox2").classList.add("fa-times-circle");
+            document.getElementById("userBox2").classList.remove("valid");
+            document.getElementById("userBox2").classList.remove("fa-check-circle");
+            document.getElementById("sub2").hidden=true;
+            
+        }
+    }
+    function chkPass2(){
+        var password2RX = new RegExp("^[A-Z,a-z,0-9,~,!,@,#,$,%,^,&,*]{8,}$"); //cheking
+        var validityPass2 = password2RX.test(password2.value);
+
+        if (validityPass2 == true){
+            //alert('valid');
+            document.getElementById("passBox2").classList.add("valid");
+            document.getElementById("passBox2").classList.add("fa-check-circle");
+            document.getElementById("passBox2").classList.remove("invalid");
+            document.getElementById("passBox2").classList.remove("fa-times-circle");
+            document.getElementById("sub2").hidden=false;  
+        }   
+        else{
+            //alert('invalid');
+            document.getElementById("passBox2").classList.add("invalid");
+            document.getElementById("passBox2").classList.add("fa-times-circle");
+            document.getElementById("passBox2").classList.remove("valid");
+            document.getElementById("passBox2").classList.remove("fa-check-circle");
+            document.getElementById("sub2").hidden=true;
+        }
+    }
+    function chkCon(){
+        x = document.getElementById("conBox")
+        if (conformPass.value == password2.value){
+            x.classList.add("valid");
+            x.classList.add("fa-check-circle");
+            x.classList.remove("invalid");
+            x.classList.remove("fa-times-circle");
+            document.getElementById("sub2").hidden=false;
+            
+        }   
+        else{
+            x.classList.add("invalid");
+            x.classList.add("fa-times-circle");
+            x.classList.remove("valid");
+            x.classList.remove("fa-check-circle");
+            document.getElementById("sub2").hidden=true;
+            
+        }
+    }
+    function chkNum(){
+        var numRX = new RegExp("^[0-9]{10}$");
+        var validityNum = numRX.test(teleNo.value);
+        x = document.getElementById("mobileBox")
+        if (validityNum == true){
+            x.classList.add("valid");
+            x.classList.add("fa-check-circle");
+            x.classList.remove("invalid");
+            x.classList.remove("fa-times-circle");
+            document.getElementById("sub2").hidden=false;
+            
+        }   
+        else{
+            x.classList.add("invalid");
+            x.classList.add("fa-times-circle");
+            x.classList.remove("valid");
+            x.classList.remove("fa-check-circle");
+            document.getElementById("sub2").hidden=true;
+            
+        }
+    }
+
+
+}
+    /*  ----------------------------------------------------------------------------------  */
+
+</script>
+</body>
+</html>
